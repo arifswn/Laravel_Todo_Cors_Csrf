@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\TodoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['cors'])->get('/todos', [AuthController::class, 'indexTodo'])->name('todos.index');
-Route::post('/todos', [AuthController::class, 'storeTodo'])->name('todos.store');
-
-//
+Route::get('todos', [TodoController::class, 'index']);
+Route::get('todos/{id}', [TodoController::class, 'show']);
+Route::post('todos', [TodoController::class, 'store']);
+Route::put('todos/{id}', [TodoController::class, 'update']);
+Route::delete('todos/{id}', [TodoController::class, 'destroy']);

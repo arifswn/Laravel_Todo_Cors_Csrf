@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route Welcome
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('todo', [TodoController::class, 'index'])->name('todo.index');
-Route::post('todo', [TodoController::class, 'store'])->name('todo.store');
+Route::resource('todos', TodoController::class);
