@@ -16,17 +16,24 @@ class LogCorsMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->headers->has('origin')) {
-            //    output log
-            Log::info('Cors Request Detected', [
-                'Origin' => $request->headers->get('origin'),
-                'Method' => $request->method(),
+        // reset log file
+        // File::put(storage_path('logs/laravel.log'), '');
+
+        // Cek apakah request termasuk CORS
+        if ($request->headers->has('Origin')) {
+            // Log detail request CORS
+            Log::info('CORS Request Detected:', [
+                'Origin' => $request->headers->get('Origin'),
+                'Method' => $request->getMethod(),
                 'URL' => $request->fullUrl(),
-                'Allowed Origins' => config('cors.allowed_origins'),
                 'Allowed Methods' => config('cors.allowed_methods'),
+                'Allowed Origins' => config('cors.allowed_origins'),
             ]);
         }
+        // Reset log after processing request
         $response = $next($request);
+
+        // Return response
         return $response;
     }
 }

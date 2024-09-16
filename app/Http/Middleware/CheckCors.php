@@ -15,18 +15,21 @@ class CheckCors
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Only allow GET requests
         $allowedMethods = ['GET', 'POST'];
-        // check method
+
+        // Check the request method
         $method = $request->method();
 
-        // check log
+        // Check if the request method is allowed
         $checkMethod = in_array($method, $allowedMethods);
 
-        // check Method
+        // Continue if the request method is allowed
         if ($checkMethod) {
             return $next($request);
         }
 
-        return response()->json(['message' => 'Unauthorized'], 401);
+        // Return a 403 Forbidden response if the origin or method is not allowed
+        return response()->json(['message' => 'Forbidden'], 403);
     }
 }

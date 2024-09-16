@@ -17,21 +17,23 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    // method GET, POST, PUT, DELETE
+    // Izinkan semua metode (GET, POST, PUT, DELETE, dll.)
     'allowed_methods' => ['*'],
 
-    // header Domain > http://example.com
-    'allowed_origins' => ['http://localhost:3000'],
+    // Izinkan semua domain atau ganti dengan domain spesifik
+    // contoh: ['http://example.com'] > digunakan untuk domain client
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
-    // header Authorization > content-type, Authorization
+    // Izinkan semua header atau ganti dengan header spesifik
     'allowed_headers' => ['*'],
 
     'exposed_headers' => [],
 
     'max_age' => 0,
 
+    // Jika kamu menggunakan cookie-based authentication, set menjadi true
     'supports_credentials' => false,
 
 ];
