@@ -16,7 +16,7 @@ class CheckCors
     public function handle(Request $request, Closure $next): Response
     {
         // Only allow GET requests
-        $allowedMethods = ['GET', 'POST'];
+        $allowedMethods = ['GET', 'POST', 'PUT'];
 
         // Check the request method
         $method = $request->method();
