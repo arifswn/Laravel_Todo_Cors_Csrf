@@ -32,8 +32,9 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'completed' => 'nullable|boolean',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'nullable|in:0,1',
         ]);
 
         if ($validator->fails()) {
@@ -52,7 +53,8 @@ class TodoController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'title' => 'required|unique:todos,title,' . $id . '|max:255', // validasi title tidak boleh kosong, unik kecuali dirinya sendiri
+            'description' => 'nullable|string',
             'completed' => 'nullable|boolean',
         ]);
 
