@@ -4,6 +4,12 @@
 
 Materi ini dirancang untuk kelas Web Development (Laravel) dan membahas topik CORS (Cross-Origin Resource Sharing) dan CSRF (Cross-Site Request Forgery) dalam Laravel. Menggunakan Laravel 10, materi ini mencakup contoh implementasi CRUD sederhana untuk model Todo, serta penyediaan REST API untuk mengelola Todo.
 
+## Demo
+
+Untuk melihat demo aplikasi, silakan kunjungi [Laravel Todo](https://laraveltodocorscsrf-production.up.railway.app/).
+
+Berikut adalah materi lanjutan yang dibuat menggunakan HTML, CSS, dan JavaScript: Link Demo [Simple Todo CORS CSRF](https://simple-todo-cors-csrf.vercel.app/). Materi ini digunakan untuk menguji CORS pada aplikasi frontend. Perhatikan bahwa pada fungsi **DELETE**, Anda mungkin akan mengalami error CORS.
+
 ## Upload ke Railway
 
 Registrasi Railway untuk deployment: [Railway](https://railway.app/)
@@ -90,4 +96,5 @@ Digunakan untuk mengizinkan request dari domain yang berbeda.
 Digunakan untuk mengamankan form request dari serangan CSRF.
 
 ## Thank You
+
 Semoga materi ini bermanfaat dan membantu Anda dalam memahami dan mengimplementasikan CORS serta CSRF di Laravel. Selamat belajar!
