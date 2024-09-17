@@ -18,7 +18,7 @@ return [
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     // Izinkan semua metode (GET, POST, PUT, DELETE, dll.)
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET', 'POST', 'PUT'],
 
     // Izinkan semua domain atau ganti dengan domain spesifik
     // contoh: ['http://example.com'] > digunakan untuk domain client
